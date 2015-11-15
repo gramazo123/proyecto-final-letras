@@ -6,7 +6,7 @@
 
         <div class="col-xs-12 col-sm-9">
           <p class="pull-right visible-xs">
-            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Grupos</button>
           </p>
           <div class="jumbotron">
             <h1>Proyecto final con Django!</h1>
@@ -15,7 +15,7 @@
  	  {% for post in posts %}
 	  <div class="row">
             <div class="col-xs-8 col-lg-6">
-              <center><h1><a href="">{{ post.banda }}</a></h1></center>
+              <center><h1><a href="{% url 'letras.views.detalles_banda' pk=post.pk %}">{{ post.banda }}</a></h1></center>
               <center><img src="{% static post.foto %}" width="300" height="300" class="img-thumbnail" alt="Responsive image" /></center>
               <h3>Integrantes: {{ post.integrantes }}</h3>
 	    </div><!--/.col-xs-8.col-lg-6-->  
@@ -31,16 +31,9 @@
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
+	    {% for post in posts %}         
+            <b><center><a href="#" class="list-group-item">{{ post.banda }}</a></center></b>
+	    {% endfor %}
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->
