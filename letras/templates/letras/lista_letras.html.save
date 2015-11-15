@@ -1,0 +1,16 @@
+<div>
+    <h1><a href="/">Letras Musicales</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>publicado: {{ post.banda }}</p>
+        <h1><a href="">{{ post.integrantes }}</a></h1>
+        <p>{{ post.foto }}</p>
+    </div>
+    <div>
+        {% for c in post.Cancione_get.all %}
+            <h1><p>{{ c.titulo }}</p></h1>
+        
+    </div>
+{% endfor %}

@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<div>
+    <h1><a href="/">Letras Musicales</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>publicado: {{ post.banda }}</p>
+        <h1><a href="">{{ post.integrantes }}</a></h1>
+        <img src="{% static post.foto %}">
+    </div>
+    <div>
+        {% for c in post.cancione_set.all %}
+            <h1><p>{{ c.titulo }}</p></h1>
+        {% endfor %}
+    </div>
+{% endfor %}
