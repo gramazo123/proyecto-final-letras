@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.utils import timezone
+from .models import Cancione
 from .models import Banda
 from .forms import BandaForm
 
@@ -39,3 +40,8 @@ def editar_banda(request, pk):
         else:
             form = BandaForm(instance=post)
         return render(request, 'letras/editar_banda.html', {'form': form})
+
+def detalles_cancion(request, pk):
+    post = get_object_or_404(Cancione, pk=pk)
+    return render(request, 'letras/detalles_cancion.html', {'post': post})
+
