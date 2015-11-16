@@ -9,15 +9,17 @@
           </p>
           <div class="jumbotron">
            <center> <h2>{{ post.banda}}</h2>
-           <img src="{% static post.foto %}" class="img-responsive" alt="Responsive image""/>
-	    <h3>Integrantes: {{ post.integrantes }}</h3></center>
+           <img src="{% static post.foto %}" width="600" heigth="400" class="img-responsive" alt="Responsive image""/>
+	   <h3>Integrantes: {{ post.integrantes }}</h3></center>
+	   <p class="text-right"><a class="btn btn-primary" href="#" role="button">Editar &raquo;</a>  <a class="btn btn-success" href="#" role="button">Agregar canción &raquo;</a>  
+	   <a class="btn btn-danger" href="#" role="button">Eliminar &raquo;</a></p>
           </div>
 	</div><!--/.col-xs-10.col-sm-9-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            {% for c in post.cancione_set.all %}
-	      <center><a href="#" class="list-group-item">{{ c.titulo }}</a></center>
-            {% endfor %}
+          <div class="list-group">	 	  
+            {% for c in post.cancione_set.all %}	     
+	      <center><a href="#" class="list-group-item">{{ c.titulo }}</a></center>	     
+            {% endfor %}	 
           </div>
         </div><!--/.sidebar-offcanvas-->            
       </div><!--/row-->

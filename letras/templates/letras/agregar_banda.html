@@ -1,0 +1,26 @@
+{% extends 'letras/base.html' %}
+    {% load staticfiles %}
+    {% block content %}
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-12">
+        <p class="pull-right visible-xs">
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Canciones</button>
+        </p>
+        <div class="jumbotron">	
+        <center><h1>Agregar nuevo banda</h1></center>
+	<form method="POST" enctype="multipart/form-data" class="post-form">{% csrf_token %}
+           <div class="form-group">
+           <p><label for="id_banda">Banda:</label> <input id="id_banda" maxlength="50" name="banda" type="text" class="form-control" /></p>           
+           </div>
+           <div class="form-group">
+           <p><label for="id_integrantes">Integrantes:</label> <input id="id_integrantes" maxlength="50" name="integrantes" type="text" class="form-control"/></p>          
+           </div>
+           <div class="form-group">
+           <p><label for="id_foto">Foto:</label> <input id="id_foto" name="foto" type="file" /></p>
+           </div>
+           <p class="text-right"><button type="submit" class="save btn btn-primary"> Agregar banda </button></p>
+         </form>
+	</div>
+      </div><!--/.col-xs-12.col-sm-12-->
+    </div><!--/row-->
+    {% endblock %}

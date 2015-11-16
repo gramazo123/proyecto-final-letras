@@ -187,6 +187,10 @@ td,
 th {
   padding: 0;
 }
+.post-form textarea, .post-form input {
+  width: 100%;
+}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -6797,4 +6801,5 @@ button.close {
     display: none !important;
   }
 }
+
 /*# sourceMappingURL=bootstrap.css.map */
