@@ -11,7 +11,8 @@
            <center> <h2>{{ post.banda}}</h2>
            <img src="{% static post.foto %}" width="600" heigth="400" class="img-responsive" alt="Responsive image""/>
 	   <h3>Integrantes: {{ post.integrantes }}</h3></center>
-	   <p class="text-right"><a class="btn btn-primary" href="#" role="button">Editar &raquo;</a>  <a class="btn btn-success" href="#" role="button">Agregar canción &raquo;</a>  
+	   <p class="text-right"><a class="btn btn-primary" href="{% url 'editar_banda' pk=post.pk %}" role="button">Editar &raquo;</a>  
+           <a class="btn btn-success" href="#" role="button">Agregar canción &raquo;</a>  
 	   <a class="btn btn-danger" href="#" role="button">Eliminar &raquo;</a></p>
           </div>
 	</div><!--/.col-xs-10.col-sm-9-->

@@ -27,3 +27,15 @@ def agregar_banda(request):
     else:
         form = BandaForm()
     return render(request, 'letras/agregar_banda.html', {'form': form})
+
+def editar_banda(request, pk):
+        post = get_object_or_404(Banda, pk=pk)
+        if request.method == "POST":
+            form = BandaForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)                
+                post.save()
+                return redirect('letras.views.detalles_banda', pk=post.pk)
+        else:
+            form = BandaForm(instance=post)
+        return render(request, 'letras/editar_banda.html', {'form': form})
