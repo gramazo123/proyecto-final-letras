@@ -14,7 +14,7 @@
 	   <h2><center>{{post.titulo}}</center></h2>
            <textarea class="form-control" rows="12" readonly="readonly">{{ post.letra }}</textarea>
            <br>
-           <p class="text-right"><a class="btn btn-primary" href="{% url 'editar_banda' pk=post.pk %}" role="button">Editar &raquo;</a>
+           <p class="text-right"><a class="btn btn-primary" href="{% url 'editar_cancion' pk=post.pk %}" role="button">Editar &raquo;</a>
            <a class="btn btn-danger" href="#" role="button">Eliminar &raquo;</a></p>
           </div>
         </div><!--/.col-xs-10.col-sm-9-->      

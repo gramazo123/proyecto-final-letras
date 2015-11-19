@@ -70,3 +70,16 @@ def agregar_letrasb(request):
     else:
         form = CancionBForm()
     return render(request, 'letras/agregar_letras.html', {'form': form})
+
+def editar_cancion(request, pk):
+        post = get_object_or_404(Cancione, pk=pk)
+        if request.method == "POST":
+            form = CancionForm(request.POST, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.save()
+                return redirect('letras.views.detalles_cancion', pk=post.pk)
+        else:
+            form = CancionForm(instance=post)
+        return render(request, 'letras/editar_cancion.html', {'form': form})
+

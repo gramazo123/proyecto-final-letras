@@ -8,9 +8,22 @@ body {
 }
 body {
   padding-top: 70px;
+  background-image: url('FondoPagina.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
+}
+h1, h3 {
+  color: #ffffff;
+  text-shadow: 0px 0px 8px #000000;
+}
+a{
+  color: #000000;
+  text-shadow: 0px 0px 8px #ffffff;
 }
 footer {
   padding: 30px 0;
+  color: #ffffff
 }
 
 /*
