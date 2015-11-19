@@ -1,0 +1,18 @@
+{% extends 'letras/base.html' %}
+    {% load staticfiles %}
+    {% block content %}
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-12">
+        <p class="pull-right visible-xs">
+          <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Canciones</button>
+        </p>
+        <div class="jumbotron">
+        <center><h1>Agregar nueva cancion</h1></center>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Agregar</button>
+        </form>
+        </div>
+      </div><!--/.col-xs-12.col-sm-12-->
+    </div><!--/row-->
+    {% endblock %}

@@ -8,7 +8,8 @@ from django.utils import timezone
 from .models import Cancione
 from .models import Banda
 from .forms import BandaForm
-
+from .forms import CancionForm
+from .forms import CancionBForm
 
 def lista_letras(request):
     posts = Banda.objects.all()
@@ -45,3 +46,27 @@ def detalles_cancion(request, pk):
     post = get_object_or_404(Cancione, pk=pk)
     return render(request, 'letras/detalles_cancion.html', {'post': post})
 
+def agregar_letras(request,pk):
+    if request.method == "POST":
+        form = CancionForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.autor = request.user
+            post.banda = Banda.objects.get(id = pk)
+            post.save()
+            return redirect('letras.views.detalles_cancion', pk=post.pk)
+    else:
+        form = CancionForm()
+    return render(request, 'letras/agregar_letras.html', {'form': form})
+
+def agregar_letrasb(request):
+    if request.method == "POST":
+        form = CancionBForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.autor = request.user
+            post.save()
+            return redirect('letras.views.detalles_cancion', pk=post.pk)
+    else:
+        form = CancionBForm()
+    return render(request, 'letras/agregar_letras.html', {'form': form})
