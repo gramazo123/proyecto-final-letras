@@ -12,10 +12,11 @@
            <img src="{% static post.banda.foto %}" width="600" heigth="400" class="img-responsive" alt="Responsive image""/>
            <h3>Integrantes: {{ post.banda.integrantes }}</h3></center>
 	   <h2><center>{{post.titulo}}</center></h2>
+           <small> Duracion: {{post.duracion}}</small>
            <textarea class="form-control" rows="12" readonly="readonly">{{ post.letra }}</textarea>
            <br>
            <p class="text-right"><a class="btn btn-primary" href="{% url 'editar_cancion' pk=post.pk %}" role="button">Editar &raquo;</a>
-           <a class="btn btn-danger" href="#" role="button">Eliminar &raquo;</a></p>
+           <a class="btn btn-danger" href="{% url 'eliminar_cancion' pk=post.pk pkb=post.banda.pk %}" role="button">Eliminar &raquo;</a></p>
           </div>
         </div><!--/.col-xs-10.col-sm-9-->      
         </div><!--/.sidebar-offcanvas-->

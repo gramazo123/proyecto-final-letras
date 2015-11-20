@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^letra/nueva/$', views.agregar_letrasb, name='agregar_letrasb'),
     url(r'^banda/(?P<pk>[0-9]+)/letra/nueva/$', views.agregar_letras, name='agregar_letras'),
     url(r'banda/letra/(?P<pk>[0-9]+)/editar/$', views.editar_cancion, name='editar_cancion'),
+    url(r'banda/(?P<pkb>[0-9]+)/letra/(?P<pk>[0-9]+)/eliminar$', views.eliminar_cancion, name='eliminar_cancion'),
 ]
 
